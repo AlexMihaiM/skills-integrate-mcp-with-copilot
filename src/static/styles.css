@@ -111,18 +111,16 @@ section h3 {
 }
 
 .delete-btn {
-  background: none;
-  border: none;
-  color: #c62828;
+  background-color: #c62828;
+  color: white;
   cursor: pointer;
-  font-size: 14px;
-  padding: 2px 5px;
-  transition: all 0.2s;
+  font-size: 13px;
+  padding: 5px 8px;
   border-radius: 3px;
 }
 
 .delete-btn:hover {
-  background-color: #ffebee;
+  background-color: #8e0000;
 }
 
 .participants-section p {
@@ -190,6 +188,20 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+#logout-button {
+  margin-bottom: 20px;
+}
+
+#teacher-actions {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#teacher-actions h3 {
+  margin-top: 0;
 }
 
 footer {
