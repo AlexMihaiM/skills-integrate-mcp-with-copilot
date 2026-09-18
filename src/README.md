@@ -6,6 +6,7 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- Teacher login protects registration changes
 
 ## Getting Started
 
@@ -30,7 +31,11 @@ A super simple FastAPI application that allows students to view and sign up for 
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/auth/login`                                                      | Start a teacher session                                               |
+| POST   | `/auth/logout`                                                     | End the current teacher session                                       |
+| GET    | `/auth/me`                                                         | Check the current session                                             |
+| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu`   | Sign up for an activity as a teacher                                  |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister a student as a teacher                                  |
 
 ## Data Model
 
@@ -47,4 +52,4 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+Teacher credentials for this exercise are stored in `teachers.json`. Set `SESSION_SECRET` in production instead of using the development fallback. Activity data remains in memory, which means it will be reset when the server restarts.
